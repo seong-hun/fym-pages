@@ -1,0 +1,466 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Basic Usage &#8212; Fym v1.2 Manual</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/blank.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fym.logging module" href="logger.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../index.html">
+<p class="title">Fym</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../reference/index.html">
+  API reference
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/fdcl-nrf/fym" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="whatisfym.html">
+   What is Fym?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Basic Usage
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="logger.html">
+   <code class="xref any docutils literal notranslate">
+    <span class="pre">
+     fym.logging
+    </span>
+   </code>
+   module
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parser.html">
+   <code class="xref any docutils literal notranslate">
+    <span class="pre">
+     fym.parser
+    </span>
+   </code>
+   module
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulation-template">
+   Simulation template
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#registration-of-basesystem">
+   Registration of
+   <code class="xref any docutils literal notranslate">
+    <span class="pre">
+     BaseSystem
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#states-of-basesystem">
+   States of
+   <code class="xref any docutils literal notranslate">
+    <span class="pre">
+     BaseSystem
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup-the-dynamics-in-baseenv-set-dot">
+   Setup the dynamics in
+   <code class="xref any docutils literal notranslate">
+    <span class="pre">
+     BaseEnv.set_dot
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#define-the-interaction-apis-for-baseenv">
+   Define the interaction APIs for
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     BaseEnv
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-numerical-integration-works">
+     How Numerical Integration Works
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-the-baseenv-step-method-with-zoh-inputs">
+     Define the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       BaseEnv.step
+      </span>
+     </code>
+     method with ZoH inputs
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="basic-usage">
+<h1>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h1>
+<section id="simulation-template">
+<h2>Simulation template<a class="headerlink" href="#simulation-template" title="Permalink to this headline">¶</a></h2>
+<p>The basic usage of <strong>Fym</strong> is very similar to Simulink (conceptual only, of
+course). A simulation is executed through a following basic template.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">env</span> <span class="o">=</span> <span class="n">Env</span><span class="p">()</span>
+<span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">done</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">done</span><span class="p">:</span>
+        <span class="k">break</span>
+
+<span class="n">env</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>As you can see, this is the legacy of the OpenAI Gym.</p>
+<p><a class="reference internal" href="../reference/generated/fym.BaseEnv.html#fym.BaseEnv" title="fym.BaseEnv"><code class="xref any py py-class docutils literal notranslate"><span class="pre">BaseEnv</span></code></a> is like a <a class="reference external" href="https://www.mathworks.com/help/simulink/gs/create-a-simple-model.html#bu3nd7o-1">Blank
+Model</a>
+in Simulink. Every setup including dynamics, simulation time-step, final time,
+integration method should be defined in this main class. The <code class="docutils literal notranslate"><span class="pre">Env</span></code> that
+inherits <a class="reference internal" href="../reference/generated/fym.BaseEnv.html#fym.BaseEnv" title="fym.BaseEnv"><code class="xref any py py-class docutils literal notranslate"><span class="pre">BaseEnv</span></code></a> class is initialized with the following structure.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fym.core</span> <span class="kn">import</span> <span class="n">BaseEnv</span><span class="p">,</span> <span class="n">BaseSystem</span>
+
+<span class="k">class</span> <span class="nc">Env</span><span class="p">(</span><span class="n">BaseEnv</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">max_t</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The arguments of <code class="docutils literal notranslate"><span class="pre">super().__init__</span></code> establishes the integration method
+consisting of a time step (<code class="docutils literal notranslate"><span class="pre">dt</span></code>), a final time (<code class="docutils literal notranslate"><span class="pre">max_t</span></code>), etc.</p>
+</section>
+<section id="registration-of-basesystem">
+<h2>Registration of <a class="reference internal" href="../reference/generated/fym.BaseSystem.html#fym.BaseSystem" title="fym.BaseSystem"><code class="xref any py py-class docutils literal notranslate"><span class="pre">BaseSystem</span></code></a><a class="headerlink" href="#registration-of-basesystem" title="Permalink to this headline">¶</a></h2>
+<p>Now, you can add dynamical systems as follows. From now on, dynamical system
+means a system that requires an integration in the simulation, denoted by
+<a class="reference internal" href="../reference/generated/fym.BaseSystem.html#fym.BaseSystem" title="fym.BaseSystem"><code class="xref any py py-class docutils literal notranslate"><span class="pre">BaseSystem</span></code></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">class</span> <span class="nc">Env</span><span class="p">(</span><span class="n">BaseEnv</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">max_t</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">plant</span> <span class="o">=</span> <span class="n">BaseSystem</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load</span> <span class="o">=</span> <span class="n">BaseSystem</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">actuator</span> <span class="o">=</span> <span class="n">BaseSystem</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>There are three ways to initalize <a class="reference internal" href="../reference/generated/fym.BaseSystem.html#fym.BaseSystem" title="fym.BaseSystem"><code class="xref any py py-class docutils literal notranslate"><span class="pre">BaseSystem</span></code></a> to the main Blank
+Model, <code class="docutils literal notranslate"><span class="pre">Env</span></code>.  The first way is give it a shape as <code class="docutils literal notranslate"><span class="pre">BaseSystem(shape=(3,</span> <span class="pre">2))</span></code>.
+This initializes the system with a numpy zeros with a shape <code class="docutils literal notranslate"><span class="pre">(3,</span> <span class="pre">2)</span></code>. Another
+way is directly give it an initial state as <code class="docutils literal notranslate"><span class="pre">BaseSystem(np.vstack((0,</span> <span class="pre">0,</span> <span class="pre">-1)))</span></code>.  Finally, it can be initialized without any argument, where it’s
+default initial state is a numpy zeros with a shape <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">1)</span></code>.</p>
+</section>
+<section id="states-of-basesystem">
+<h2>States of <a class="reference internal" href="../reference/generated/fym.BaseSystem.html#fym.BaseSystem" title="fym.BaseSystem"><code class="xref any py py-class docutils literal notranslate"><span class="pre">BaseSystem</span></code></a><a class="headerlink" href="#states-of-basesystem" title="Permalink to this headline">¶</a></h2>
+<p>Because <a class="reference internal" href="../reference/generated/fym.BaseSystem.html#fym.BaseSystem" title="fym.BaseSystem"><code class="xref any py py-class docutils literal notranslate"><span class="pre">BaseSystem</span></code></a> is a dynamical system, it has a state. The state is
+initialized with the <a class="reference external" href="https://www.notion.so/63f0df1d92a340299a10d64434c03c43">registration of the
+instance</a> in
+<a class="reference internal" href="../reference/generated/fym.BaseEnv.__init__.html#fym.BaseEnv.__init__" title="fym.BaseEnv.__init__"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">BaseEnv.__init__</span></code></a> method. It is basically a list or a numpy array with any
+shape. After the registration, states of each <a class="reference internal" href="../reference/generated/fym.BaseSystem.html#fym.BaseSystem" title="fym.BaseSystem"><code class="xref any py py-class docutils literal notranslate"><span class="pre">BaseSystem</span></code></a> can be accessed
+in anywhere, with <code class="xref any docutils literal notranslate"><span class="pre">BaseSystem.state</span></code> variable.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">env</span> <span class="o">=</span> <span class="n">Env</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">plant</span><span class="o">.</span><span class="n">state</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="setup-the-dynamics-in-baseenv-set-dot">
+<h2>Setup the dynamics in <a class="reference internal" href="../reference/generated/fym.BaseEnv.set_dot.html#fym.BaseEnv.set_dot" title="fym.BaseEnv.set_dot"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">BaseEnv.set_dot</span></code></a><a class="headerlink" href="#setup-the-dynamics-in-baseenv-set-dot" title="Permalink to this headline">¶</a></h2>
+<p>Every dynamcal systems, i.e., <code class="docutils literal notranslate"><span class="pre">BaseSystem</span></code>, has its own dynamics, or a
+derivative. For example, there might be a stable linear system: <code class="docutils literal notranslate"><span class="pre">ẋ</span> <span class="pre">=</span> <span class="pre">-</span> <span class="pre">x</span></code>.
+Since <a class="reference external" href="https://www.notion.so/63f0df1d92a340299a10d64434c03c43">we’ve define</a> an
+initial value in <code class="docutils literal notranslate"><span class="pre">BaseEnv.__init__</span></code> method, only defining the derivative
+completes the <a class="reference external" href="https://en.wikipedia.org/wiki/Ordinary_differential_equation">ordinary differential
+equation</a>, as it
+is an <a class="reference external" href="https://en.wikipedia.org/wiki/Initial_value_problem">initial value
+problem</a>. All the
+derivatives should be defined in <code class="docutils literal notranslate"><span class="pre">BaseEnv.set_dot</span></code> method by simply assiging
+the derivative to <code class="docutils literal notranslate"><span class="pre">BaseSystem.dot</span></code> variable.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Env</span><span class="p">(</span><span class="n">BaseEnv</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;...&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">action</span><span class="p">):</span>
+        <span class="o">*</span><span class="n">_</span><span class="p">,</span> <span class="n">done</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">action</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">done</span>
+
+    <span class="k">def</span> <span class="nf">set_dot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="o">**</span><span class="n">action</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">plant</span><span class="o">.</span><span class="n">dot</span> <span class="o">=</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">plant</span><span class="o">.</span><span class="n">state</span>
+        <span class="sd">&quot;&quot;&quot;self.load.dot, self.actuator.dot, ... &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>The method <code class="docutils literal notranslate"><span class="pre">BaseEnv.step</span></code> defines how the <code class="docutils literal notranslate"><span class="pre">BaseEnv</span></code> communicates with outer
+world as in the <a class="reference external" href="https://www.notion.so/63f0df1d92a340299a10d64434c03c43">simulation
+template</a>. The input
+and output is free to define, but there must be a <code class="docutils literal notranslate"><span class="pre">self.update</span></code> method, which
+will actually perform the integration. Fortunately, you don’t need to define
+<code class="docutils literal notranslate"><span class="pre">BaseEnv.update</span></code> method. Everything complicated, such as integration, is done
+automatically by the <strong>Fym</strong> module.</p>
+</section>
+<section id="define-the-interaction-apis-for-baseenv">
+<h2>Define the interaction APIs for <code class="docutils literal notranslate"><span class="pre">BaseEnv</span></code><a class="headerlink" href="#define-the-interaction-apis-for-baseenv" title="Permalink to this headline">¶</a></h2>
+<section id="how-numerical-integration-works">
+<h3>How Numerical Integration Works<a class="headerlink" href="#how-numerical-integration-works" title="Permalink to this headline">¶</a></h3>
+<p><strong>The most important thing that you must be aware of is that how the numerical
+integration works.</strong> <strong>Fym</strong> implements a continuous-time ODE solver. Inside
+the <code class="docutils literal notranslate"><span class="pre">BaseEnv.set_dot</span></code> method, time <code class="docutils literal notranslate"><span class="pre">t</span></code> and <code class="docutils literal notranslate"><span class="pre">BaseSystem.state</span></code>’s are varying
+continuously. Hence, if you want to design a continuous-time feedback
+controller, you must define it inside the <code class="docutils literal notranslate"><span class="pre">BaseEnv.set_dot</span></code> method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Env</span><span class="p">(</span><span class="n">BaseEnv</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;...&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">set_dot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">plant</span><span class="o">.</span><span class="n">state</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="o">-</span> <span class="n">K</span> <span class="o">@</span> <span class="n">x</span>  <span class="c1"># a linear feedback input</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="mi">1</span>  <span class="c1"># a Heviside function</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">plant</span><span class="o">.</span><span class="n">dot</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">x</span> <span class="o">+</span> <span class="n">B</span> <span class="o">@</span> <span class="n">u</span> <span class="o">+</span> <span class="n">r</span>
+</pre></div>
+</div>
+</section>
+<section id="define-the-baseenv-step-method-with-zoh-inputs">
+<h3>Define the <code class="docutils literal notranslate"><span class="pre">BaseEnv.step</span></code> method with ZoH inputs<a class="headerlink" href="#define-the-baseenv-step-method-with-zoh-inputs" title="Permalink to this headline">¶</a></h3>
+<p>There is another type of input that requires the <a class="reference external" href="https://en.wikipedia.org/wiki/Zero-order_hold">zero-order
+hold</a> (ZoH) which is useful for
+command signals or agent actions in reinforcement learning (of course, the
+command signal can be performed within the <code class="docutils literal notranslate"><span class="pre">BaseEnv.set_dot</span></code> method using a
+function of time). To conform to reinforcement learning practice (e.g., OpenAI
+Gym), one can define a step method and call <code class="docutils literal notranslate"><span class="pre">update</span></code> method with keyword
+arguments which are the ZoH inputs.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Env</span><span class="p">(</span><span class="n">BaseEnv</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;...&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">set_dot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;...&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
+        <span class="o">*</span><span class="n">_</span><span class="p">,</span> <span class="n">done</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="n">action</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;Construct next_obs, action, done, info etc.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">next_obs</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">info</span>
+</pre></div>
+</div>
+<p>In the above example, the key of ZoH input is <code class="docutils literal notranslate"><span class="pre">action</span></code>, and it must be set to
+an argument of <code class="docutils literal notranslate"><span class="pre">set_dot</span></code> method with the same key name. The <code class="docutils literal notranslate"><span class="pre">update</span></code> method
+returns three object: <code class="docutils literal notranslate"><span class="pre">t_hist</span></code>, <code class="docutils literal notranslate"><span class="pre">ode_hist</span></code> and <code class="docutils literal notranslate"><span class="pre">done</span></code>, although only the last
+<code class="docutils literal notranslate"><span class="pre">done</span></code> is useful for typical situations.</p>
+<p><code class="docutils literal notranslate"><span class="pre">update</span></code> method is actually do the numerical integration internally. Hence,
+after calling <code class="docutils literal notranslate"><span class="pre">update</span></code>, every states contained in the <code class="docutils literal notranslate"><span class="pre">BaseEnv</span></code> will be
+updated.</p>
+<p>For the simulations that do not require the ZoH inputs, just call <code class="docutils literal notranslate"><span class="pre">update</span></code> and <code class="docutils literal notranslate"><span class="pre">set_dot</span></code> only with time <code class="docutils literal notranslate"><span class="pre">t</span></code>, like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Env</span><span class="p">(</span><span class="n">BaseEnv</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;...&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">set_dot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;...&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="o">*</span><span class="n">_</span><span class="p">,</span> <span class="n">done</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">done</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="installation.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Installation</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="logger.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><code class="xref any docutils literal notranslate"><span class="pre">fym.logging</span></code> module</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Seong-hun Kim.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

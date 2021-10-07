@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Basic usage &#8212; Fym v1.2 Manual</title>
+    <title>Core components &#8212; Fym v1.2 Manual</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -70,7 +70,13 @@
       
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 current active nav-item">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../user/index.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
  <a class="reference internal nav-link" href="index.html">
   API reference
  </a>
@@ -114,7 +120,7 @@
     <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   Basic usage
+   Core components
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -135,8 +141,18 @@
   </ul>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="logging.html">
+   Logging module
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="config.html">
    Managing configuration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parser.html">
+   Parsing module
   </a>
  </li>
 </ul>
@@ -153,19 +169,9 @@
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
-    <i class="fas fa-list"></i> On this page
-</div>
 
 <nav id="bd-toc-nav">
-    <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#core-components">
-   Core components
-  </a>
- </li>
-</ul>
-
+    
 </nav>
               </div>
               
@@ -185,25 +191,22 @@
               
               <div>
                 
-  <section id="basic-usage">
-<span id="core"></span><h1>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h1>
-<section id="core-components">
-<h2>Core components<a class="headerlink" href="#core-components" title="Permalink to this headline">¶</a></h2>
+  <section id="core-components">
+<span id="core"></span><h1>Core components<a class="headerlink" href="#core-components" title="Permalink to this headline">¶</a></h1>
 <table class="longtable table autosummary">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/fym.BaseEnv.html#fym.BaseEnv" title="fym.BaseEnv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseEnv</span></code></a>([dt, max_t, eager_stop, logger, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fym.BaseEnv.html#fym.BaseEnv" title="fym.BaseEnv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseEnv</span></code></a></p></td>
 <td><p>A base environment class.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/fym.BaseSystem.html#fym.BaseSystem" title="fym.BaseSystem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseSystem</span></code></a>([initial_state, shape, name])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/fym.BaseSystem.html#fym.BaseSystem" title="fym.BaseSystem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseSystem</span></code></a></p></td>
 <td><p>A base system class.</p></td>
 </tr>
 </tbody>
 </table>
-</section>
 </section>
 
 

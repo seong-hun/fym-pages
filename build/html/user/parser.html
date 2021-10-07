@@ -1,0 +1,462 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>fym.parser module &#8212; Fym v1.2 Manual</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/blank.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Fym Reference" href="../reference/index.html" />
+    <link rel="prev" title="fym.logging module" href="logger.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../index.html">
+<p class="title">Fym</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../reference/index.html">
+  API reference
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/fdcl-nrf/fym" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="whatisfym.html">
+   What is Fym?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="quickstart.html">
+   Basic Usage
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="logger.html">
+   <code class="xref any docutils literal notranslate">
+    <span class="pre">
+     fym.logging
+    </span>
+   </code>
+   module
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   <code class="xref any docutils literal notranslate">
+    <span class="pre">
+     fym.parser
+    </span>
+   </code>
+   module
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-usage">
+   Basic Usage
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parser-parse">
+     <code class="xref any docutils literal notranslate">
+      <span class="pre">
+       parser.parse
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parser-update">
+     <code class="xref any docutils literal notranslate">
+      <span class="pre">
+       parser.update
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-prune-keyword">
+     The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       prune
+      </span>
+     </code>
+     keyword
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parser-decode">
+     <code class="xref any docutils literal notranslate">
+      <span class="pre">
+       parser.decode
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parser-merge">
+     <code class="xref any docutils literal notranslate">
+      <span class="pre">
+       parser.merge
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parser-copy">
+     <code class="xref any docutils literal notranslate">
+      <span class="pre">
+       parser.copy
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="fym-parser-module">
+<h1><code class="xref any docutils literal notranslate"><span class="pre">fym.parser</span></code> module<a class="headerlink" href="#fym-parser-module" title="Permalink to this headline">¶</a></h1>
+<p>This module assists setting up the configuration of each module and scripts. It
+parses JSON files with dot notation such as <code class="docutils literal notranslate"><span class="pre">settings.json</span></code> in <a class="reference external" href="https://code.visualstudio.com">Visual Studio
+Code</a>.</p>
+<section id="basic-usage">
+<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<section id="parser-parse">
+<h3><a class="reference internal" href="../reference/generated/fym.parser.parse.html#fym.parser.parse" title="fym.parser.parse"><code class="xref any py py-func docutils literal notranslate"><span class="pre">parser.parse</span></code></a><a class="headerlink" href="#parser-parse" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="../reference/generated/fym.parser.parse.html#fym.parser.parse" title="fym.parser.parse"><code class="xref any py py-func docutils literal notranslate"><span class="pre">parser.parse</span></code></a> parses a JSON-like <code class="docutils literal notranslate"><span class="pre">dict</span></code> object to a nested
+<a class="reference external" href="https://docs.python.org/3/library/types.html#types.SimpleNamespace"><code class="docutils literal notranslate"><span class="pre">types.SimpleNamespace</span></code></a>
+object like following. It encodes a dotted key into a nested structure to make
+ease of grouping the configuration.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fym</span> <span class="kn">import</span> <span class="n">parser</span><span class="p">,</span> <span class="n">BaseEnv</span><span class="p">,</span> <span class="n">BaseSystem</span>
+
+<span class="n">json_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;env.kwargs&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">max_t</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+    <span class="s2">&quot;multicopter.nrotor&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="s2">&quot;multicopter.m&quot;</span><span class="p">:</span> <span class="mf">3.</span><span class="p">,</span>
+    <span class="s2">&quot;multicopter.LQRGain&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="s2">&quot;R&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;actuator.tau&quot;</span><span class="p">:</span> <span class="mf">1e-1</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">json_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="parser-update">
+<h3><a class="reference internal" href="../reference/generated/fym.parser.update.html#fym.parser.update" title="fym.parser.update"><code class="xref any py py-func docutils literal notranslate"><span class="pre">parser.update</span></code></a><a class="headerlink" href="#parser-update" title="Permalink to this headline">¶</a></h3>
+<p>Because the <a class="reference internal" href="../reference/generated/fym.parser.parse.html#fym.parser.parse" title="fym.parser.parse"><code class="xref any py py-func docutils literal notranslate"><span class="pre">parser.parse</span></code></a> method returns a <code class="docutils literal notranslate"><span class="pre">SimpleNamespace</span></code> instance,
+the object should be updated or modified following the <code class="docutils literal notranslate"><span class="pre">SimpleNamespace</span></code>’s
+rule. To make ease of usage, <a class="reference internal" href="#"><span class="doc">fym.parser module</span></a> provides a convenient method,
+<a class="reference internal" href="../reference/generated/fym.parser.update.html#fym.parser.update" title="fym.parser.update"><code class="xref any py py-func docutils literal notranslate"><span class="pre">parser.update</span></code></a>, which can take a JSON-like <code class="docutils literal notranslate"><span class="pre">dict</span></code> with dotted keys or
+another <code class="docutils literal notranslate"><span class="pre">SimpleNamespace</span></code> instance. See the following example.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">load_config</span><span class="p">():</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="p">{</span>
+        <span class="s2">&quot;env.kwargs&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">max_t</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+        <span class="s2">&quot;agent.memory_size&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="s2">&quot;agent.minibatch_size&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+    <span class="p">})</span>
+
+<span class="n">load_config</span><span class="p">()</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">kwargs</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="mf">0.001</span>
+</pre></div>
+</div>
+</section>
+<section id="the-prune-keyword">
+<h3>The <code class="docutils literal notranslate"><span class="pre">prune</span></code> keyword<a class="headerlink" href="#the-prune-keyword" title="Permalink to this headline">¶</a></h3>
+<p>If you pass a <code class="docutils literal notranslate"><span class="pre">prune=True</span></code> keyword argument to <code class="docutils literal notranslate"><span class="pre">update</span></code> method, it will remove
+the items that exist only in the first argument. It is extremely useful when
+one need to reset a configuration without losing the reference.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">config.py</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fym</span> <span class="kn">import</span> <span class="n">parser</span>
+
+<span class="n">default_cfg</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">({</span><span class="s2">&quot;k1&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;k2&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">default_cfg</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">foo.py</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fym</span> <span class="kn">import</span> <span class="n">parser</span>
+<span class="kn">import</span> <span class="nn">config</span>
+
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">cfg</span>
+
+<span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">main.py</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fym</span> <span class="kn">import</span> <span class="n">parser</span>
+<span class="kn">import</span> <span class="nn">foo</span>
+<span class="kn">import</span> <span class="nn">config</span>
+
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">cfg</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># With prune=False (default)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;k1&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;k3&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>
+    <span class="n">foo</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>  <span class="c1"># k1: 2, k2: 2, k3: 3</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">default_cfg</span><span class="p">)</span>
+    <span class="n">foo</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>  <span class="c1"># k1: 1, k2: 2, k3: 3</span>
+
+    <span class="c1"># With prune=True</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;k1&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;k3&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">default_cfg</span><span class="p">,</span> <span class="n">prune</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">foo</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>  <span class="c1"># k1: 1, k2: 2</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>As you can see, the reference in <code class="docutils literal notranslate"><span class="pre">foo.cfg</span></code> is not broken. This concept can be
+used to setup one default configuration, and several per-experiment,
+use-defined configurations.</p>
+</section>
+<section id="parser-decode">
+<h3><a class="reference internal" href="../reference/generated/fym.parser.decode.html#fym.parser.decode" title="fym.parser.decode"><code class="xref any py py-func docutils literal notranslate"><span class="pre">parser.decode</span></code></a><a class="headerlink" href="#parser-decode" title="Permalink to this headline">¶</a></h3>
+<p>Note that all the child elements in the returned <code class="docutils literal notranslate"><span class="pre">SimpleNamespace</span></code> is also a
+<code class="docutils literal notranslate"><span class="pre">SimpleNamespace</span></code>. A common method to conert it into a <code class="docutils literal notranslate"><span class="pre">dict</span></code> is <code class="docutils literal notranslate"><span class="pre">vars</span></code>,
+although it cannot handle the nested <code class="docutils literal notranslate"><span class="pre">dict</span></code>. <a class="reference internal" href="#"><span class="doc">fym.parser module</span></a> module provides a
+<a class="reference internal" href="../reference/generated/fym.parser.decode.html#fym.parser.decode" title="fym.parser.decode"><code class="xref any py py-func docutils literal notranslate"><span class="pre">parser.decode</span></code></a> method that converts the nested <code class="docutils literal notranslate"><span class="pre">SimpleNamespace</span></code> object
+into a nested <code class="docutils literal notranslate"><span class="pre">dict</span></code> which may useful to deal with keyword arguments.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;env.kwargs&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">max_t</span><span class="o">=</span><span class="mi">10</span><span class="p">)})</span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">BaseEnv</span><span class="p">(</span><span class="o">**</span><span class="n">parser</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">kwargs</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="parser-merge">
+<h3><a class="reference internal" href="../reference/generated/fym.parser.merge.html#fym.parser.merge" title="fym.parser.merge"><code class="xref any py py-func docutils literal notranslate"><span class="pre">parser.merge</span></code></a><a class="headerlink" href="#parser-merge" title="Permalink to this headline">¶</a></h3>
+<p>This is a recursively merging method for <code class="docutils literal notranslate"><span class="pre">dict</span></code>-like objects.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">({</span><span class="s2">&quot;env.kwargs&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">max_t</span><span class="o">=</span><span class="mi">10</span><span class="p">)})</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">({</span><span class="s2">&quot;env.kwargs.dt&quot;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;env.loggerPath&quot;</span><span class="p">:</span> <span class="s2">&quot;data.h5&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Now, two <code class="docutils literal notranslate"><span class="pre">SimpleNamespace</span></code>s, <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, can be merged through:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The result is given by</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="n">env</span><span class="p">:</span> <span class="p">{</span>
+    <span class="n">kwargs</span><span class="p">:</span> <span class="p">{</span>
+      <span class="n">dt</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span>
+      <span class="n">max_t</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="n">loggerPath</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">h5</span><span class="p">,</span>
+  <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="parser-copy">
+<h3><a class="reference internal" href="../reference/generated/fym.parser.copy.html#fym.parser.copy" title="fym.parser.copy"><code class="xref any py py-func docutils literal notranslate"><span class="pre">parser.copy</span></code></a><a class="headerlink" href="#parser-copy" title="Permalink to this headline">¶</a></h3>
+<p>This is a nothing but a <code class="docutils literal notranslate"><span class="pre">deepcopy</span></code> of the dict-like object. Hence, it breaks
+the references.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">parse</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="logger.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><code class="xref any docutils literal notranslate"><span class="pre">fym.logging</span></code> module</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../reference/index.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Fym Reference</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Seong-hun Kim.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

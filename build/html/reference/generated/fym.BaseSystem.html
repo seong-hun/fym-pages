@@ -34,8 +34,8 @@
     <script src="../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Managing configuration" href="../config.html" />
-    <link rel="prev" title="fym.BaseEnv" href="fym.BaseEnv.html" />
+    <link rel="next" title="fym.BaseSystem.__init__" href="fym.BaseSystem.__init__.html" />
+    <link rel="prev" title="fym.BaseEnv.update_delays" href="fym.BaseEnv.update_delays.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -70,7 +70,13 @@
       
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 current active nav-item">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../user/index.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
  <a class="reference internal nav-link" href="../index.html">
   API reference
  </a>
@@ -127,9 +133,46 @@
      fym.BaseEnv
     </a>
    </li>
-   <li class="toctree-l2 current active">
+   <li class="toctree-l2 current active has-children">
     <a class="current reference internal" href="#">
      fym.BaseSystem
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="fym.BaseSystem.__init__.html">
+       fym.BaseSystem.__init__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="fym.BaseSystem.distributing.html">
+       fym.BaseSystem.distributing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="fym.BaseSystem.reset.html">
+       fym.BaseSystem.reset
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="fym.BaseSystem.set_delay.html">
+       fym.BaseSystem.set_delay
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="fym.BaseSystem.update_delays.html">
+       fym.BaseSystem.update_delays
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="fym.logging.html">
+     fym.logging
     </a>
    </li>
   </ul>
@@ -137,6 +180,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../config.html">
    Managing configuration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../parser.html">
+   Parsing module
   </a>
  </li>
 </ul>
@@ -179,41 +227,13 @@
 <h1>fym.BaseSystem<a class="headerlink" href="#fym-basesystem" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="fym.BaseSystem">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">fym.</span></span><span class="sig-name descname"><span class="pre">BaseSystem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1,</span> <span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fdcl-nrf/fym/blob/v1.2.2/fym/core.py#L321-L386"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fym.BaseSystem" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">fym.</span></span><span class="sig-name descname"><span class="pre">BaseSystem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1,</span> <span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fdcl-nrf/fym/blob/v1.2.2/fym/core.py#L334-L403"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fym.BaseSystem" title="Permalink to this definition">¶</a></dt>
 <dd><p>A base system class.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>dot</strong></dt><dd></dd>
-<dt><strong>initial_state</strong></dt><dd></dd>
-<dt><strong>state</strong></dt><dd></dd>
-</dl>
-</dd>
-</dl>
-<p class="rubric">Methods</p>
-<table class="table">
-<colgroup>
-<col style="width: 63%" />
-<col style="width: 37%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><strong>distributing</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>reset</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>set_delay</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>update_delays</strong></p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<p>Use <code class="xref py py-obj docutils literal notranslate"><span class="pre">state</span></code> attribute.
+However, <a class="reference internal" href="fym.BaseEnv.set_dot.html#fym.BaseEnv.set_dot" title="fym.BaseEnv.set_dot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseEnv.set_dot</span></code></a> is the method.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="fym.BaseSystem.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1,</span> <span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fdcl-nrf/fym/blob/v1.2.2/fym/core.py#L325-L334"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fym.BaseSystem.__init__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1,</span> <span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fdcl-nrf/fym/blob/v1.2.2/fym/core.py#L341-L350"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fym.BaseSystem.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -223,19 +243,19 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#fym.BaseSystem.__init__" title="fym.BaseSystem.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([initial_state, shape, name])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="fym.BaseSystem.__init__.html#fym.BaseSystem.__init__" title="fym.BaseSystem.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([initial_state, shape, name])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">distributing</span></code>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="fym.BaseSystem.distributing.html#fym.BaseSystem.distributing" title="fym.BaseSystem.distributing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">distributing</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset</span></code>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="fym.BaseSystem.reset.html#fym.BaseSystem.reset" title="fym.BaseSystem.reset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_delay</span></code>(T)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="fym.BaseSystem.set_delay.html#fym.BaseSystem.set_delay" title="fym.BaseSystem.set_delay"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_delay</span></code></a>(T)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_delays</span></code>(t_hist, ode_hist)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="fym.BaseSystem.update_delays.html#fym.BaseSystem.update_delays" title="fym.BaseSystem.update_delays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_delays</span></code></a>(t_hist, ode_hist)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -254,7 +274,7 @@
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">state</span></code></p></td>
-<td><p></p></td>
+<td><p>The state attribure.</p></td>
 </tr>
 </tbody>
 </table>
@@ -268,17 +288,17 @@
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="fym.BaseEnv.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="fym.BaseEnv.update_delays.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">fym.BaseEnv</p>
+            <p class="prev-next-title">fym.BaseEnv.update_delays</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../config.html" title="next page">
+    <a class='right-next' id="next-link" href="fym.BaseSystem.__init__.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Managing configuration</p>
+        <p class="prev-next-title">fym.BaseSystem.__init__</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

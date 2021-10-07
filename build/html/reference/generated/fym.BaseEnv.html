@@ -34,7 +34,7 @@
     <script src="../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="fym.BaseSystem" href="fym.BaseSystem.html" />
+    <link rel="next" title="fym.BaseEnv.__init__" href="fym.BaseEnv.__init__.html" />
     <link rel="prev" title="Basic usage" href="../core.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -70,7 +70,13 @@
       
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 current active nav-item">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../user/index.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
  <a class="reference internal nav-link" href="../index.html">
   API reference
  </a>
@@ -122,14 +128,101 @@
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2 current active">
+   <li class="toctree-l2 current active has-children">
     <a class="current reference internal" href="#">
      fym.BaseEnv
     </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="fym.BaseEnv.__init__.html">
+       fym.BaseEnv.__init__
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="fym.BaseEnv.close.html">
+       fym.BaseEnv.close
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="fym.BaseEnv.distributing.html">
+       fym.BaseEnv.distributing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="fym.BaseEnv.indexing.html">
+       fym.BaseEnv.indexing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="fym.BaseEnv.observe_dict.html">
+       fym.BaseEnv.observe_dict
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="fym.BaseEnv.observe_flat.html">
+       fym.BaseEnv.observe_flat
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="fym.BaseEnv.observe_list.html">
+       fym.BaseEnv.observe_list
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="fym.BaseEnv.observe_vec.html">
+       fym.BaseEnv.observe_vec
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="fym.BaseEnv.ode_wrapper.html">
+       fym.BaseEnv.ode_wrapper
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="fym.BaseEnv.render.html">
+       fym.BaseEnv.render
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="fym.BaseEnv.reset.html">
+       fym.BaseEnv.reset
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="fym.BaseEnv.set_dot.html">
+       fym.BaseEnv.set_dot
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="fym.BaseEnv.step.html">
+       fym.BaseEnv.step
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="fym.BaseEnv.update.html">
+       fym.BaseEnv.update
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="fym.BaseEnv.update_delays.html">
+       fym.BaseEnv.update_delays
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="fym.BaseSystem.html">
      fym.BaseSystem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="fym.logging.html">
+     fym.logging
     </a>
    </li>
   </ul>
@@ -137,6 +230,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../config.html">
    Managing configuration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../parser.html">
+   Parsing module
   </a>
  </li>
 </ul>
@@ -179,82 +277,13 @@
 <h1>fym.BaseEnv<a class="headerlink" href="#fym-baseenv" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="fym.BaseEnv">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">fym.</span></span><span class="sig-name descname"><span class="pre">BaseEnv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eager_stop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger_callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rk4'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ode_step_len</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ode_option</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fdcl-nrf/fym/blob/v1.2.2/fym/core.py#L13-L318"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fym.BaseEnv" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">fym.</span></span><span class="sig-name descname"><span class="pre">BaseEnv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eager_stop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger_callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rk4'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ode_step_len</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ode_option</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fdcl-nrf/fym/blob/v1.2.2/fym/core.py#L13-L331"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fym.BaseEnv" title="Permalink to this definition">¶</a></dt>
 <dd><p>A base environment class.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>dot</strong></dt><dd></dd>
-<dt><strong>initial_state</strong></dt><dd></dd>
-<dt><strong>state</strong></dt><dd></dd>
-<dt><strong>systems</strong></dt><dd></dd>
-<dt><strong>systems_dict</strong></dt><dd></dd>
-</dl>
-</dd>
-</dl>
-<p class="rubric">Methods</p>
-<table class="longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dot</span></code>(time, *args)</p></td>
-<td><p>Overwrite this method with a custom method.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">step</span></code>()</p></td>
-<td><p>Sample code: <code class="docutils literal notranslate"><span class="pre">`python</span> <span class="pre">def</span> <span class="pre">step(self):</span>&#160;&#160;&#160;&#160; <span class="pre">self.update()</span>&#160;&#160;&#160;&#160; <span class="pre">done</span> <span class="pre">=</span> <span class="pre">self.clock.time_over()</span>&#160;&#160;&#160;&#160; <span class="pre">return</span> <span class="pre">self.observe_dict(),</span> <span class="pre">None,</span> <span class="pre">done,</span> <span class="pre">None</span> <span class="pre">`</span></code></p></td>
-</tr>
-</tbody>
-</table>
-<table class="table">
-<colgroup>
-<col style="width: 63%" />
-<col style="width: 37%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><strong>close</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>distributing</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>indexing</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>observe_dict</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>observe_flat</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>observe_list</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>observe_vec</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>ode_wrapper</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>render</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>reset</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>update</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>update_delays</strong></p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
 <dl class="py method">
 <dt class="sig sig-object py" id="fym.BaseEnv.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eager_stop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger_callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rk4'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ode_step_len</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ode_option</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fdcl-nrf/fym/blob/v1.2.2/fym/core.py#L17-L53"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fym.BaseEnv.__init__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eager_stop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger_callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rk4'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ode_step_len</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ode_option</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fdcl-nrf/fym/blob/v1.2.2/fym/core.py#L17-L56"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fym.BaseEnv.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize.</p>
+</dd></dl>
 
 <p class="rubric">Methods</p>
 <table class="longtable table autosummary">
@@ -263,49 +292,49 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#fym.BaseEnv.__init__" title="fym.BaseEnv.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([dt, max_t, eager_stop, logger, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="fym.BaseEnv.__init__.html#fym.BaseEnv.__init__" title="fym.BaseEnv.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([dt, max_t, eager_stop, logger, ...])</p></td>
+<td><p>Initialize.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="fym.BaseEnv.close.html#fym.BaseEnv.close" title="fym.BaseEnv.close"><code class="xref py py-obj docutils literal notranslate"><span class="pre">close</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">close</span></code>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="fym.BaseEnv.distributing.html#fym.BaseEnv.distributing" title="fym.BaseEnv.distributing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">distributing</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">distributing</span></code>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="fym.BaseEnv.indexing.html#fym.BaseEnv.indexing" title="fym.BaseEnv.indexing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">indexing</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">indexing</span></code>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="fym.BaseEnv.observe_dict.html#fym.BaseEnv.observe_dict" title="fym.BaseEnv.observe_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">observe_dict</span></code></a>([state])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">observe_dict</span></code>([state])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="fym.BaseEnv.observe_flat.html#fym.BaseEnv.observe_flat" title="fym.BaseEnv.observe_flat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">observe_flat</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">observe_flat</span></code>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="fym.BaseEnv.observe_list.html#fym.BaseEnv.observe_list" title="fym.BaseEnv.observe_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">observe_list</span></code></a>([state])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">observe_list</span></code>([state])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="fym.BaseEnv.observe_vec.html#fym.BaseEnv.observe_vec" title="fym.BaseEnv.observe_vec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">observe_vec</span></code></a>([state])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">observe_vec</span></code>([state])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="fym.BaseEnv.ode_wrapper.html#fym.BaseEnv.ode_wrapper" title="fym.BaseEnv.ode_wrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ode_wrapper</span></code></a>(func)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ode_wrapper</span></code>(func)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="fym.BaseEnv.render.html#fym.BaseEnv.render" title="fym.BaseEnv.render"><code class="xref py py-obj docutils literal notranslate"><span class="pre">render</span></code></a>([mode, desc])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">render</span></code>([mode, desc])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="fym.BaseEnv.reset.html#fym.BaseEnv.reset" title="fym.BaseEnv.reset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset</span></code>()</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dot</span></code>(time, *args)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="fym.BaseEnv.set_dot.html#fym.BaseEnv.set_dot" title="fym.BaseEnv.set_dot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dot</span></code></a>(time, *args)</p></td>
 <td><p>Overwrite this method with a custom method.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">step</span></code>()</p></td>
-<td><p>Sample code: <code class="docutils literal notranslate"><span class="pre">`python</span> <span class="pre">def</span> <span class="pre">step(self):</span>&#160;&#160;&#160;&#160; <span class="pre">self.update()</span>&#160;&#160;&#160;&#160; <span class="pre">done</span> <span class="pre">=</span> <span class="pre">self.clock.time_over()</span>&#160;&#160;&#160;&#160; <span class="pre">return</span> <span class="pre">self.observe_dict(),</span> <span class="pre">None,</span> <span class="pre">done,</span> <span class="pre">None</span> <span class="pre">`</span></code></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="fym.BaseEnv.step.html#fym.BaseEnv.step" title="fym.BaseEnv.step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">step</span></code></a>()</p></td>
+<td><p>Update one time step.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code>(**kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="fym.BaseEnv.update.html#fym.BaseEnv.update" title="fym.BaseEnv.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code></a>(**kwargs)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_delays</span></code>(t_hist, ode_hist)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="fym.BaseEnv.update_delays.html#fym.BaseEnv.update_delays" title="fym.BaseEnv.update_delays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_delays</span></code></a>(t_hist, ode_hist)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -351,10 +380,10 @@
             <p class="prev-next-title">Basic usage</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="fym.BaseSystem.html" title="next page">
+    <a class='right-next' id="next-link" href="fym.BaseEnv.__init__.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">fym.BaseSystem</p>
+        <p class="prev-next-title">fym.BaseEnv.__init__</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>fym.logging module &#8212; Fym v1.2 Manual</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/blank.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fym.parser module" href="parser.html" />
+    <link rel="prev" title="Basic Usage" href="quickstart.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../index.html">
+<p class="title">Fym</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../reference/index.html">
+  API reference
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/fdcl-nrf/fym" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="whatisfym.html">
+   What is Fym?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="quickstart.html">
+   Basic Usage
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   <code class="xref any docutils literal notranslate">
+    <span class="pre">
+     fym.logging
+    </span>
+   </code>
+   module
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parser.html">
+   <code class="xref any docutils literal notranslate">
+    <span class="pre">
+     fym.parser
+    </span>
+   </code>
+   module
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inner-logger">
+   Inner logger
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-usage">
+     Basic usage
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#baseenv-logger-callback">
+     <code class="xref any docutils literal notranslate">
+      <span class="pre">
+       BaseEnv.logger_callback
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#baseenv-set-dot">
+     <code class="xref any docutils literal notranslate">
+      <span class="pre">
+       BaseEnv.set_dot
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#when-both-returns-are-defined">
+     When both returns are defined
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="fym-logging-module">
+<h1><a class="reference internal" href="../reference/generated/fym.logging.html#module-fym.logging" title="fym.logging"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">fym.logging</span></code></a> module<a class="headerlink" href="#fym-logging-module" title="Permalink to this headline">¶</a></h1>
+<p>There are several way to save a experimental data in <code class="docutils literal notranslate"><span class="pre">fym</span></code>.
+The <a class="reference internal" href="../reference/generated/fym.logging.Logger.html#fym.logging.Logger" title="fym.logging.Logger"><code class="xref any py py-class docutils literal notranslate"><span class="pre">Logger</span></code></a> class provides several convient features to record a numerical
+data into a <a class="reference external" href="https://www.hdfgroup.org/solutions/hdf5/"><code class="docutils literal notranslate"><span class="pre">HDF5</span></code> format</a> file
+using <a class="reference external" href="https://docs.h5py.org/en/stable/"><code class="docutils literal notranslate"><span class="pre">h5py</span></code> module</a>.</p>
+<section id="inner-logger">
+<h2>Inner logger<a class="headerlink" href="#inner-logger" title="Permalink to this headline">¶</a></h2>
+<section id="basic-usage">
+<h3>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h3>
+<p>As long as a <a class="reference internal" href="../reference/generated/fym.logging.Logger.html#fym.logging.Logger" title="fym.logging.Logger"><code class="xref any py py-class docutils literal notranslate"><span class="pre">Logger</span></code></a> instance is registered with the <a class="reference internal" href="../reference/generated/fym.BaseEnv.html#fym.BaseEnv" title="fym.BaseEnv"><code class="xref any py py-class docutils literal notranslate"><span class="pre">BaseEnv</span></code></a>
+instance as a <code class="docutils literal notranslate"><span class="pre">logger</span></code> attribute, the <a class="reference internal" href="../reference/generated/fym.logging.Logger.html#fym.logging.Logger" title="fym.logging.Logger"><code class="xref any py py-class docutils literal notranslate"><span class="pre">Logger</span></code></a> instance becomes the inner
+logger, and is ready to record the inner states.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">env</span> <span class="o">=</span> <span class="n">Env</span><span class="p">()</span>
+<span class="n">env</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">fym</span><span class="o">.</span><span class="n">Logger</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;data.h5&quot;</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;...&quot;&quot;&quot;</span>
+
+<span class="n">env</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Note that you should <a class="reference internal" href="../reference/generated/fym.BaseEnv.close.html#fym.BaseEnv.close" title="fym.BaseEnv.close"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">BaseEnv.close</span></code></a> the BaseEnv to ensure all the data is
+properly recorded into the file.</p>
+<p>There are three ways to record <a class="reference internal" href="../reference/generated/fym.BaseEnv.html#fym.BaseEnv" title="fym.BaseEnv"><code class="xref any py py-class docutils literal notranslate"><span class="pre">BaseEnv</span></code></a>’s inner states.</p>
+<ol class="simple">
+<li><p>Simply do nothing. The inner logger automatically records the time and all
+the inner states.</p></li>
+<li><p>Define the <code class="xref any docutils literal notranslate"><span class="pre">BaseEnv.logger_callback</span></code> method that returns a <code class="docutils literal notranslate"><span class="pre">dict</span></code>, or make
+<a class="reference internal" href="../reference/generated/fym.BaseEnv.set_dot.html#fym.BaseEnv.set_dot" title="fym.BaseEnv.set_dot"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">BaseEnv.set_dot</span></code></a> method return a <code class="docutils literal notranslate"><span class="pre">dict</span></code>. The returned dict will be
+recorded.</p></li>
+<li><p>Make both in 2. The two <code class="docutils literal notranslate"><span class="pre">dict</span></code> is going to be merged where
+<code class="xref any docutils literal notranslate"><span class="pre">BaseEnv.logger_callback</span></code> has priority. (i.e.,
+<code class="docutils literal notranslate"><span class="pre">set_dot_returned.update(logger_callback_returned)</span></code>)</p></li>
+</ol>
+</section>
+<section id="baseenv-logger-callback">
+<h3><code class="xref any docutils literal notranslate"><span class="pre">BaseEnv.logger_callback</span></code><a class="headerlink" href="#baseenv-logger-callback" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes, the data users want to record can be simply state variables within
+the <a class="reference internal" href="../reference/generated/fym.BaseEnv.html#fym.BaseEnv" title="fym.BaseEnv"><code class="xref any py py-class docutils literal notranslate"><span class="pre">BaseEnv</span></code></a> and/or <a class="reference internal" href="../reference/generated/fym.BaseSystem.html#fym.BaseSystem" title="fym.BaseSystem"><code class="xref any py py-class docutils literal notranslate"><span class="pre">BaseSystem</span></code></a> and data derived from them (i.e.
+control inputs). When using <code class="docutils literal notranslate"><span class="pre">fym</span></code>, there is one major <a class="reference internal" href="../reference/generated/fym.BaseEnv.html#fym.BaseEnv" title="fym.BaseEnv"><code class="xref any py py-class docutils literal notranslate"><span class="pre">BaseEnv</span></code></a> that runs
+the simulation with <a class="reference internal" href="../reference/generated/fym.BaseEnv.update.html#fym.BaseEnv.update" title="fym.BaseEnv.update"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">BaseEnv.update</span></code></a> method. The
+<code class="xref any docutils literal notranslate"><span class="pre">BaseEnv.logger_callback</span></code> method defines information to be recorded in
+every time step when the environment updates. See the example below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fym.core</span> <span class="kn">import</span> <span class="n">BaseEnv</span><span class="p">,</span> <span class="n">BaseSystem</span>
+<span class="kn">import</span> <span class="nn">fym.logging</span>
+
+<span class="k">class</span> <span class="nc">Env</span><span class="p">(</span><span class="n">BaseEnv</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Other methods&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">logger_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+        <span class="n">ud</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">controller</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">plant</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">observe_dict</span><span class="p">(),</span> <span class="n">ud</span><span class="o">=</span><span class="n">ud</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Controller</span><span class="p">(</span><span class="n">BaseSystem</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Other methods&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plant</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">plant</span><span class="o">.</span><span class="n">state</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span>
+        <span class="k">return</span> <span class="o">-</span> <span class="n">k</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">env</span> <span class="o">=</span> <span class="n">Env</span><span class="p">()</span>
+<span class="n">env</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">fym</span><span class="o">.</span><span class="n">logging</span><span class="o">.</span><span class="n">Logger</span><span class="p">(</span><span class="s2">&quot;data.h5&quot;</span><span class="p">)</span>
+<span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">env</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+    <span class="n">done</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">done</span><span class="p">:</span>
+        <span class="k">break</span>
+
+<span class="n">env</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">fym</span><span class="o">.</span><span class="n">logging</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;data.h5&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="baseenv-set-dot">
+<h3><a class="reference internal" href="../reference/generated/fym.BaseEnv.set_dot.html#fym.BaseEnv.set_dot" title="fym.BaseEnv.set_dot"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">BaseEnv.set_dot</span></code></a><a class="headerlink" href="#baseenv-set-dot" title="Permalink to this headline">¶</a></h3>
+<p>If all the variables to be recorded is already calculated in <a class="reference internal" href="../reference/generated/fym.BaseEnv.set_dot.html#fym.BaseEnv.set_dot" title="fym.BaseEnv.set_dot"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">BaseEnv.set_dot</span></code></a>,
+simply return a dictionary of them is going to be recorded automatically. It
+would reduce several lines of code and saves time. For this, you must remove
+the <code class="xref any docutils literal notranslate"><span class="pre">BaseEnv.logger_callback</span></code> method as follows.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Env</span><span class="p">(</span><span class="n">BaseEnv</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Other methods without logger_callback&quot;&quot;&quot;</span>
+		<span class="k">def</span> <span class="nf">set_dot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+				<span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">plant</span><span class="o">.</span><span class="n">state</span>
+				<span class="n">u</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">actuator</span><span class="o">.</span><span class="n">state</span>
+				<span class="n">ud</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">controller</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">plant</span><span class="p">)</span>
+
+				<span class="bp">self</span><span class="o">.</span><span class="n">plant</span><span class="o">.</span><span class="n">dot</span> <span class="o">=</span> <span class="o">-</span> <span class="n">x</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">actuator</span><span class="o">.</span><span class="n">dot</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="n">u</span> <span class="o">-</span> <span class="n">ud</span><span class="p">)</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">controller</span><span class="o">.</span><span class="n">set_dot</span><span class="p">()</span>
+
+				<span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">observe_dict</span><span class="p">(),</span> <span class="n">ud</span><span class="o">=</span><span class="n">ud</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="when-both-returns-are-defined">
+<h3>When both returns are defined<a class="headerlink" href="#when-both-returns-are-defined" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="../reference/generated/fym.BaseEnv.set_dot.html#fym.BaseEnv.set_dot" title="fym.BaseEnv.set_dot"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">BaseEnv.set_dot</span></code></a> has returned value
++ <code class="docutils literal notranslate"><span class="pre">BaseEnv.logger_callback</span></code> is defined: record
+both (priority check: <code class="docutils literal notranslate"><span class="pre">dict.update(set_dot,</span> <span class="pre">logger_callback)</span></code>)</p></li>
+<li><p><a class="reference internal" href="../reference/generated/fym.BaseEnv.set_dot.html#fym.BaseEnv.set_dot" title="fym.BaseEnv.set_dot"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">BaseEnv.set_dot</span></code></a> doesn’t have returned value
++ <code class="docutils literal notranslate"><span class="pre">BaseEnv.logger_callback</span></code> is defined:
+record <code class="docutils literal notranslate"><span class="pre">BaseEnv.logger_callback</span></code></p></li>
+<li><p><a class="reference internal" href="../reference/generated/fym.BaseEnv.set_dot.html#fym.BaseEnv.set_dot" title="fym.BaseEnv.set_dot"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">BaseEnv.set_dot</span></code></a> has returned value + <code class="docutils literal notranslate"><span class="pre">BaseEnv.logger_callback</span></code>
+is not defined: record <a class="reference internal" href="../reference/generated/fym.BaseEnv.set_dot.html#fym.BaseEnv.set_dot" title="fym.BaseEnv.set_dot"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">BaseEnv.set_dot</span></code></a></p></li>
+<li><p><a class="reference internal" href="../reference/generated/fym.BaseEnv.set_dot.html#fym.BaseEnv.set_dot" title="fym.BaseEnv.set_dot"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">BaseEnv.set_dot</span></code></a> doesn’t have returned value
++ <code class="docutils literal notranslate"><span class="pre">BaseEnv.logger_callback</span></code> is not defined:
+record <code class="docutils literal notranslate"><span class="pre">t</span></code> and <a class="reference internal" href="../reference/generated/fym.BaseEnv.observe_dict.html#fym.BaseEnv.observe_dict" title="fym.BaseEnv.observe_dict"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">BaseEnv.observe_dict()</span></code></a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="quickstart.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Basic Usage</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="parser.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><code class="xref any docutils literal notranslate"><span class="pre">fym.parser</span></code> module</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Seong-hun Kim.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>
